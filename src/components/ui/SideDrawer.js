@@ -4,13 +4,16 @@ import { bindActionCreators } from "redux";
 import { withStyles } from 'material-ui/styles';
 import SwipeableDrawer from 'material-ui/SwipeableDrawer';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import InboxIcon from '@material-ui/icons/Inbox';
+import ClearAllIcon from "@material-ui/icons/ClearAll";
+import RefreshIcon from "@material-ui/icons/Refresh";
+import ClearIcon from "@material-ui/icons/Clear";
 
 import * as UiActions from "../../redux/ui/actions";
+import * as TodoActions from "../../redux/todos/actions";
 
 const styles = {
   list: {
-    width: 250,
+    width: 300,
   }
 };
 
@@ -20,20 +23,33 @@ const mapStateToProps = ({ ui }) => {
 };
 
 const mapDispatchtoProps = dispatch => ({
-  actions: bindActionCreators(UiActions, dispatch)
+  uiActions: bindActionCreators(UiActions, dispatch),
+  todoActions: bindActionCreators(TodoActions, dispatch)
 });
 
-const sideDrawer = ({ drawerOpen, actions, classes }) => {
+const sideDrawer = ({ drawerOpen, uiActions, todoActions, classes }) => {
   return (
-    <SwipeableDrawer open={drawerOpen} onOpen={actions.openDrawer} onClose={actions.closeDrawer}>
-      <div tabIndex={0} role="button" onClick={actions.closeDrawer} onKeyDown={actions.closeDrawer}>
+    <SwipeableDrawer open={drawerOpen} onOpen={uiActions.openDrawer} onClose={uiActions.closeDrawer}>
+      <div tabIndex={0} role="button" onClick={uiActions.closeDrawer} onKeyDown={uiActions.closeDrawer}>
         <div className={classes.list}>
           <List>
-            <ListItem button>
+            <ListItem button onClick={() => todoActions.setAllCompleted(true)}>
               <ListItemIcon>
-                <InboxIcon />
+                <ClearAllIcon />
               </ListItemIcon>
-              <ListItemText primary="Inbox" />
+              <ListItemText primary="Complete All" />
+            </ListItem>
+            <ListItem button onClick={() => todoActions.setAllCompleted(false)}>
+              <ListItemIcon>
+                <RefreshIcon />
+              </ListItemIcon>
+              <ListItemText primary="Uncomplete All" />
+            </ListItem>
+            <ListItem button onClick={() => todoActions.deleteAll()}>
+              <ListItemIcon>
+                <ClearIcon />
+              </ListItemIcon>
+              <ListItemText primary="Clear All" />
             </ListItem>
           </List>
         </div>

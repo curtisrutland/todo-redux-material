@@ -1,4 +1,4 @@
-import { ADD_TODO, SET_TODO_COMPLETED } from "./actionTypes";
+import { ADD_TODO, SET_TODO_COMPLETED, SET_ALL_COMPLETED, DELETE_ALL } from "./actionTypes";
 
 const initialState = {
   items: [
@@ -14,14 +14,28 @@ export default (state = initialState, action) => {
         ...state,
         items: [...state.items, action.payload]
       };
+
     case SET_TODO_COMPLETED:
-      const { idx, completed } = action.payload;
       return {
         ...state,
-        items: state.items.map((item, index) => index === idx
-          ? { ...item, completed }
+        items: state.items.map((item, index) => index === action.payload.idx
+          ? { ...item, completed: action.payload.completed }
           : item)
       };
+
+    case SET_ALL_COMPLETED:
+      return {
+        ...state,
+        items: state.items.map(item => ({ ...item, completed: action.payload }))
+      }
+
+    case DELETE_ALL:
+      return {
+        ...state,
+        items: []
+      }
+
+
     default:
       return state;
   }
