@@ -1,8 +1,9 @@
-import { TOGGLE_DRAWER, OPEN_DRAWER, CLOSE_DRAWER } from "./actionTypes";
+import { TOGGLE_DRAWER, OPEN_DRAWER, CLOSE_DRAWER, SET_SHOW_COMPLETED } from "./actionTypes";
 
 const initialState = {
   drawerOpen: false,
-  theme: "light"
+  theme: "light",
+  showCompleted: true
 };
 
 export default (state = initialState, action) => {
@@ -23,6 +24,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         drawerOpen: false
+      }
+
+    case SET_SHOW_COMPLETED:
+      return {
+        ...state,
+        showCompleted: action.payload
       }
 
     default:

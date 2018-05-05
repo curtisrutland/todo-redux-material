@@ -1,9 +1,15 @@
 import React from 'react';
 import { withStyles } from "material-ui/styles";
+import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
+
 import AppBar from "material-ui/AppBar";
 import Toolbar from 'material-ui/Toolbar';
 import Typography from "material-ui/Typography";
 import Switch from "material-ui/Switch";
+import Button from "material-ui/Button";
+
+import * as UiActions from "../../redux/ui/actions";
 
 const styles = {
   grow: {
@@ -11,13 +17,25 @@ const styles = {
   }
 };
 
-export default withStyles(styles)(({ classes }) => (
+const mapStateToProps = ({ ui }) => ({
+  showCompleted: ui.showCompleted,
+  buttonText: !ui.showCompleted ? "Hide Completed" : "Show Completed"
+})
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(UiActions, dispatch)
+})
+
+const todoHeader = withStyles(styles)(({ classes, actions, showCompleted, buttonText }) => (
   <AppBar position="static" color="default">
     <Toolbar>
       <Typography variant="title" color="inherit" className={classes.grow}>
         Todos
       </Typography>
-      <Switch color="primary" checked={true} />
+      <Button onClick={evt => actions.setShowCompleted(!showCompleted)} >{buttonText}</Button>
+      <Switch color="primary" checked={showCompleted} onChange={evt => actions.setShowCompleted(!showCompleted)} />
     </Toolbar>
   </AppBar>
-));    
+));
+
+export default connect(mapStateToProps, mapDispatchToProps)(todoHeader);

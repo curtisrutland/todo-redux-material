@@ -17,7 +17,11 @@ const styles = {
   }
 };
 
-const mapStateToProps = ({ todos }) => ({ todos: todos.items });
+const mapStateToProps = ({ todos, ui }) => ({
+  todos: ui.showCompleted 
+    ? todos.items
+    : todos.items.filter(i => !i.completed)
+});
 
 const todoView = ({ classes, todos }) => {
   return (

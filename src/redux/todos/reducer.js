@@ -35,7 +35,6 @@ export default (state = initialState, action) => {
         items: []
       }
 
-
     default:
       return state;
   }
