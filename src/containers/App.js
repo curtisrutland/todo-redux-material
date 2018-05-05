@@ -1,31 +1,30 @@
 import React, { Fragment } from 'react';
 import { withStyles } from 'material-ui/styles';
-import { connect } from "react-redux";
 import withRootTheme from '../theme/withRootTheme';
 import SideDrawer from '../components/ui/SideDrawer';
 import TitleBar from '../components/ui/TitleBar';
-
-import TodoList from "../components/todos/TodoList";
+import TodoView from "./TodoView";
 
 const styles = {
   root: {
-    paddingTop: 80
+    paddingTop: 80,
+    width: '95%',
+    maxWidth: 900,
+    margin: "0 auto",
   }
 }
 
-const mapStateToProps = ({ todos }) => ({todos: todos.items});
-
-const app = ({ classes, todos }) => {
+const app = ({ classes }) => {
   return (
     <Fragment>
       <TitleBar />
       <SideDrawer />
       <div className={classes.root}>
-        <TodoList todos={todos} />
+        <TodoView />
       </div>
     </Fragment>
   )
 };
 
 const styledApp = withRootTheme(withStyles(styles)(app));
-export default connect(mapStateToProps)(styledApp);
+export default styledApp;
