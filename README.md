@@ -1,3 +1,12 @@
+# todo-redux-material
+## Another Todo List
+
+## (Live Demo)[https://curtisrutland.github.io/todo-redux-material/]
+
+I started this project as a way to teach myself Redux, and some Material UI at the same time.
+
+## create-react-app stuff
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
