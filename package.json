@@ -19,6 +19,8 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  },
   "homepage": "http://curtisrutland.github.io/todo-redux-material"
 }
