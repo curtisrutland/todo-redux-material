@@ -1,13 +1,23 @@
 import * as localForage from "localforage";
 
-export default {
-  async getItems() {
-    const items = await localForage.getItem("items");
-    if(items) return items;
-    else return [];
-  },
+const SHOW_COMPLETED = "SHOW_COMPLETED";
+const ITEMS = "ITEMS";
 
-  async setItems(items) {
-    await localForage.setItem("items", items);
-  }
-};
+export async function getTodos() {
+  const items = await localForage.getItem(ITEMS);
+  if (items) return items;
+  else return [];
+}
+
+export async function setTodos(items) {
+  await localForage.setItem(ITEMS, items);
+}
+
+export async function getShowCompleted() {
+  const showCompleted = await localForage.getItem(SHOW_COMPLETED);
+  return showCompleted == null ? true : showCompleted;
+}
+
+export async function setShowCompleted(showCompleted) {
+  await localForage.setItem(SHOW_COMPLETED, showCompleted);
+}

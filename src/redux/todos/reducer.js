@@ -1,12 +1,12 @@
 import { ADD_TODO, SET_TODO_COMPLETED, SET_ALL_COMPLETED, DELETE_ALL, DELETE_TODO } from "./actionTypes";
-import storage from "../../services/storage";
+import * as storage from "../../services/storage";
 
 const initialState = {
   items: []
 };
 
 const updateStorage = async items => {
-  await storage.setItems(items);
+  await storage.setTodos(items);
 }
 
 export default (state = initialState, action) => {

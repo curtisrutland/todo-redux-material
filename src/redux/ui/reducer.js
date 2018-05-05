@@ -1,4 +1,5 @@
 import { TOGGLE_DRAWER, OPEN_DRAWER, CLOSE_DRAWER, SET_SHOW_COMPLETED } from "./actionTypes";
+import * as storage from "../../services/storage";
 
 const initialState = {
   drawerOpen: false,
@@ -27,6 +28,7 @@ export default (state = initialState, action) => {
       }
 
     case SET_SHOW_COMPLETED:
+      storage.setShowCompleted(action.payload);
       return {
         ...state,
         showCompleted: action.payload
