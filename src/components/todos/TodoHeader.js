@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const todoHeader = withStyles(styles)(({ classes, actions, showCompleted, buttonText }) => (
-  <AppBar position="static" color="default">
+  <AppBar position="static" color="primary">
     <Toolbar>
       <Typography variant="title" color="inherit" className={classes.grow}>
         Todos
