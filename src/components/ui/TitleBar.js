@@ -38,7 +38,7 @@ const titleBar = ({ classes, actions }) => {
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={actions.toggleDrawer}>
             <MenuIcon />
           </IconButton>
-          <Button color="inherit" size="large" color="inherit" onClick={actions.toggleDrawer}>
+          <Button color="inherit" size="large" onClick={actions.toggleDrawer}>
             <Typography variant="title" color="inherit" className={classes.title}>
               Another Todo List
           </Typography>
