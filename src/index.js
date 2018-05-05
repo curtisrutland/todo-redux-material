@@ -14,7 +14,7 @@ ReactDOM.render(
 );
 
 
-window.store = store;
+//window.store = store;
 
-// import registerServiceWorker from './registerServiceWorker';
-// registerServiceWorker();
+import registerServiceWorker from './registerServiceWorker';
+registerServiceWorker();
