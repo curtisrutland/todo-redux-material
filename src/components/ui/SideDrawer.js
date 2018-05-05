@@ -3,10 +3,14 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withStyles } from 'material-ui/styles';
 import SwipeableDrawer from 'material-ui/SwipeableDrawer';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import ClearAllIcon from "@material-ui/icons/ClearAll";
-import RefreshIcon from "@material-ui/icons/Refresh";
-import ClearIcon from "@material-ui/icons/Clear";
+import List, {
+  ListItem, ListItemIcon, ListItemText
+} from 'material-ui/List';
+import {
+  ClearAll as ClearAllIcon,
+  Refresh as RefreshIcon,
+  Clear as ClearIcon
+} from "@material-ui/icons";
 
 import * as UiActions from "../../redux/ui/actions";
 import * as TodoActions from "../../redux/todos/actions";

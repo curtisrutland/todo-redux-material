@@ -2,10 +2,12 @@ import React, { Fragment } from 'react';
 import { withStyles } from "material-ui/styles";
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
-import List, { ListItem, ListItemText } from "material-ui/List";
-import Checkbox from "material-ui/Checkbox";
-import Divider from 'material-ui/Divider';
-import Typography from "material-ui/Typography";
+import List, { ListItem, ListItemText, ListItemSecondaryAction } from "material-ui/List";
+import {
+  Checkbox, Divider, Typography,
+  IconButton
+} from "material-ui";
+import { Delete as DeleteIcon } from "@material-ui/icons";
 
 import * as TodoActions from "../../redux/todos/actions";
 
@@ -44,12 +46,17 @@ const todoList = ({ classes, children, todos, actions }) => {
                 onClick={() => actions.setTodoCompleted(id, !completed)}
                 className={classes.listItem}
               >
+                <Checkbox checked={completed} tabIndex={-1} disableRipple color="default" />
                 <ListItemText disableTypography={true}>
                   <Typography className={completed ? classes.strikethrough : null} variant="subheading">
                     {text}
                   </Typography>
                 </ListItemText>
-                <Checkbox checked={completed} tabIndex={-1} disableRipple color="default" />
+                <ListItemSecondaryAction>
+                  <IconButton onClick={() => actions.deleteTodo(id)}>
+                    <DeleteIcon />
+                  </IconButton>
+                </ListItemSecondaryAction>
               </ListItem>
               <Divider />
             </Fragment>

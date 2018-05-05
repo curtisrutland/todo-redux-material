@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/icons": "^1.0.0-beta.43",
+    "localforage": "^1.7.1",
     "material-ui": "^1.0.0-beta.44",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -15,6 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {},
+  "homepage": "http://curtisrutland.github.io/todo-redux-material"
 }

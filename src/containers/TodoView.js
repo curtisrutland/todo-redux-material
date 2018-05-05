@@ -6,6 +6,7 @@ import Card, { CardContent } from "material-ui/Card";
 
 import TodoList from "../components/todos/TodoList";
 import TodoHeader from "../components/todos/TodoHeader"
+import AddTodoForm from "../components/todos/AddTodoForm";
 
 const styles = {
   root: {
@@ -30,6 +31,7 @@ const todoView = ({ classes, todos }) => {
       <Card className={classes.card}>
         <CardContent>
           <TodoList todos={todos} />
+          <AddTodoForm />
         </CardContent>
       </Card>
     </div>

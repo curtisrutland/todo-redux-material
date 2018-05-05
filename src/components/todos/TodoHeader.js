@@ -2,12 +2,10 @@ import React from 'react';
 import { withStyles } from "material-ui/styles";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
-
-import AppBar from "material-ui/AppBar";
-import Toolbar from 'material-ui/Toolbar';
-import Typography from "material-ui/Typography";
-import Switch from "material-ui/Switch";
-import Button from "material-ui/Button";
+import {
+  AppBar, Toolbar, Typography,
+  Switch, Button
+} from "material-ui";
 
 import * as UiActions from "../../redux/ui/actions";
 

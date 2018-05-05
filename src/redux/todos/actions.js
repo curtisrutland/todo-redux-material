@@ -1,4 +1,4 @@
-import { ADD_TODO, SET_TODO_COMPLETED, SET_ALL_COMPLETED, DELETE_ALL } from "./actionTypes";
+import { ADD_TODO, SET_TODO_COMPLETED, SET_ALL_COMPLETED, DELETE_ALL, DELETE_TODO } from "./actionTypes";
 import uuidv1 from "uuid";
 
 
@@ -12,3 +12,6 @@ export const setTodoCompleted = (id, completed) => ({
 });
 export const setAllCompleted = completed => ({ type: SET_ALL_COMPLETED, payload: completed });
 export const deleteAll = () => ({ type: DELETE_ALL });
+export const deleteTodo = id => createMessage(DELETE_TODO, id);
+
+const createMessage = (type, payload) => ({ type, payload });
