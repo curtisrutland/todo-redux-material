@@ -35,13 +35,13 @@ const todoList = ({ classes, children, todos, actions }) => {
     <div className={classes.container}>
       <List className={classes.list}>
         <Divider />
-        {todos.map((todo, idx) => {
-          const { text, completed } = todo;
+        {todos.map((todo) => {
+          const { text, completed, id } = todo;
           return (
-            <Fragment key={idx}>
+            <Fragment key={id}>
               <ListItem
                 dense button
-                onClick={() => actions.setTodoCompleted(idx, !completed)}
+                onClick={() => actions.setTodoCompleted(id, !completed)}
                 className={classes.listItem}
               >
                 <ListItemText disableTypography={true}>

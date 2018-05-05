@@ -1,10 +1,12 @@
 import { ADD_TODO, SET_TODO_COMPLETED, SET_ALL_COMPLETED, DELETE_ALL } from "./actionTypes";
+import uuidv1 from "uuid";
 
-export const addTodo = todo => ({ type: ADD_TODO, payload: todo });
-export const setTodoCompleted = (idx, completed) => ({
+
+export const addTodo = ({ text, completed = false }) => ({ type: ADD_TODO, payload: { text, completed, id: uuidv1() } });
+export const setTodoCompleted = (id, completed) => ({
   type: SET_TODO_COMPLETED,
   payload: {
-    idx,
+    id,
     completed
   }
 });

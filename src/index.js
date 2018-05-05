@@ -19,5 +19,8 @@ window.store = store;
 window.addTodo = addTodo;
 window.setTodoCompleted = setTodoCompleted;
 
+store.dispatch(addTodo({ text: "Hello" }))
+store.dispatch(addTodo({ text: "Hello 2" }))
+
 // import registerServiceWorker from './registerServiceWorker';
 // registerServiceWorker();
