@@ -1,7 +1,7 @@
 # todo-redux-material
 ## Another Todo List
 
-## (Live Demo)[https://curtisrutland.github.io/todo-redux-material/]
+## [Live Demo](https://curtisrutland.github.io/todo-redux-material/)
 
 I started this project as a way to teach myself Redux, and some Material UI at the same time.
 
