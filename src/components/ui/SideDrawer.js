@@ -9,7 +9,8 @@ import List, {
 import {
   ClearAll as ClearAllIcon,
   Refresh as RefreshIcon,
-  Clear as ClearIcon
+  Clear as ClearIcon,
+  Link as LinkIcon
 } from "@material-ui/icons";
 
 import * as UiActions from "../../redux/ui/actions";
@@ -54,6 +55,12 @@ const sideDrawer = ({ drawerOpen, uiActions, todoActions, classes }) => {
                 <ClearIcon />
               </ListItemIcon>
               <ListItemText primary="Clear All" />
+            </ListItem>
+            <ListItem button onClick={() => window.location.href = "https://github.com/curtisrutland/todo-redux-material"}>
+              <ListItemIcon>
+                <LinkIcon />
+              </ListItemIcon>
+              <ListItemText primary="Project Github" />
             </ListItem>
           </List>
         </div>
