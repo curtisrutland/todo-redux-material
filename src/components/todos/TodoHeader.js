@@ -31,7 +31,7 @@ const todoHeader = withStyles(styles)(({ classes, actions, showCompleted, button
         Todos
       </Typography>
       <Button onClick={evt => actions.setShowCompleted(!showCompleted)} >{buttonText}</Button>
-      <Switch color="primary" checked={showCompleted} onChange={evt => actions.setShowCompleted(!showCompleted)} />
+      <Switch color="secondary" checked={showCompleted} onChange={evt => actions.setShowCompleted(!showCompleted)} />
     </Toolbar>
   </AppBar>
 ));
