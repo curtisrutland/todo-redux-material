@@ -6,6 +6,8 @@ import './index.css';
 import App from './containers/App';
 import store from "./redux/store";
 
+import registerServiceWorker from './registerServiceWorker';
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
@@ -16,5 +18,4 @@ ReactDOM.render(
 
 //window.store = store;
 
-import registerServiceWorker from './registerServiceWorker';
 registerServiceWorker();
